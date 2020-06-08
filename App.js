@@ -25,21 +25,21 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
+import MyLibrary from 'react-native-my-library';
 
 
 const App: () => React$Node = () => {
+  console.log(NativeModules,'test', MyLibrary);
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <TouchableHighlight
           onPress={() => {
-            console.log(NativeModules.RNHello);
-            // NativeModules.RNHello.addEvent('Birthday Party', '4 Privet Drive, Surrey');
-            NativeModules.RNHello.findEvents(resp => {
+            console.log(NativeModules);
+            MyLibrary.sampleMethod('test', 1, resp => {
               alert(resp)
-            })
+            });
           }}>
           <Text>Press</Text>
         </TouchableHighlight>
